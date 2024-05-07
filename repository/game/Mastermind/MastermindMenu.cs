@@ -36,7 +36,7 @@ namespace GamesApp.Mastermind
 
         public override GameSettings GetSettings(){
 
-          return new MastermindSettings();
+          return gameInst._settings;
         }
 
         protected override GameCore ResumeGame()

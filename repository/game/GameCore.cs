@@ -6,7 +6,7 @@ using GamesApp.Mastermind;
 public abstract class GameCore {
 
         // protected JeuPlusMoinsSettings settings; //TODO jeuplus moins
-         protected GameSettings _settings;
+         public GameSettings _settings;
 
         protected int _guessesCompt = 0;
         public string _secretCombinaison ;

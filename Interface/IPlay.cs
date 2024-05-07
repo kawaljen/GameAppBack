@@ -16,7 +16,7 @@ namespace api.Interface
 
          GameSettings GetSettingsItems();
 
-         GameSettings ChangeSettingsItem(GameSettings item);
+         GameSettings ChangeSettingsItem(GameSettings gameSettings);
         
     }
 }

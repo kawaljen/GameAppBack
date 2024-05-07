@@ -12,13 +12,9 @@ public class JeuPlusMoinsSettings :GameSettings
 
         public  JeuPlusMoinsSettings()
         {
-            nbGuesses = 10;
-            nbCases = 4;
-            nbCasesmin = 4;
-            nbCasesmax = 10;
-            nbGuessesmin = 10;
-            nbGuessesmax = 50;
-            nbColors = 6;
+
+            SetNbGuesses(10);
+            SetNbCases(4);
             SetOffset();
         }
 

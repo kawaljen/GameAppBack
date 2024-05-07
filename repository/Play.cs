@@ -10,7 +10,7 @@ namespace api.repository
     {
         //private GameLogic _inst;
         string _gameName ;
-         GameMenu _gameCh;
+         GameMenu _gameMenu;
          GameCore _inst;
         public Play()
         {
@@ -18,44 +18,46 @@ namespace api.repository
             //_gameCh = GamesApp.Mastermind.MastermindMenu.GetInstance();
 
             if (_gameName == "jeuplusmoins"){
-                _gameCh = GamesApp.JeuPlusMoins.JeuPlusMoinsMenu.GetInstance();
+                 _gameMenu = GamesApp.JeuPlusMoins.JeuPlusMoinsMenu.GetInstance();
             }
             else{
-                _gameCh = GamesApp.Mastermind.MastermindMenu.GetInstance();
+                 _gameMenu = GamesApp.Mastermind.MastermindMenu.GetInstance();
             }
-            _inst= _gameCh.StartChallengerMode();          
+            _inst=  _gameMenu.StartChallengerMode();          
         }
 
         public GameMainMenu GetGameMainMenuItems()
         {
-            GameMainMenu resp =  _gameCh.GetGameMainMenuItems();
+            GameMainMenu resp =   _gameMenu.GetGameMainMenuItems();
 
             return resp;
         }
         public void StartGame(GameModes Mode)
         {
             if(Mode == GameModes.DEFENSEMODE){
-             _gameCh.StartDefenseMode();
+              _gameMenu.StartDefenseMode();
             }
             else{
-              _gameCh.StartChallengerMode();
+               _gameMenu.StartChallengerMode();
             }
         }
 
         GameResponse IPlay.PlayATurn(string guess)
         {
-            return _gameCh.gameInst.Play(guess);
+            return  _gameMenu.gameInst.Play(guess);
         }
 
         public GameSettings GetSettingsItems()
         {
-            return _gameCh.GetSettings();
+            return _gameMenu.gameInst._settings;
         }
-        public GameSettings ChangeSettingsItem(GameSettings item)
+        public GameSettings ChangeSettingsItem(GameSettings gameSettings)
         {
+            _gameMenu.gameInst._settings.SetNbGuesses(gameSettings.nbGuesses);
+            _gameMenu.gameInst._settings.SetNbCases(gameSettings.nbCases);
 
             //
-            return _gameCh.GetSettings();
+            return _gameMenu.GetSettings();
         }
 
     }

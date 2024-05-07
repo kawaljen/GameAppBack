@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers.v0
 {
     [ApiController]
-    [Route("api/api/v0/mastermind/settings")]
+    [Route("api/v0/mastermind/settings")]
     public class MastermindSettingController : ControllerBase
     {
         private readonly IPlay _inst;
@@ -28,10 +28,10 @@ namespace api.Controllers.v0
 
         }
         [HttpGet("{items}")]
-        public IActionResult ChangeSettingsItem([FromRoute] GameSettings item)
+        public IActionResult ChangeSettingsItem([FromRoute] GameSettings gameSettings)
         {
            
-            GameSettings resp =_inst.ChangeSettingsItem(item);
+            GameSettings resp =_inst.ChangeSettingsItem(gameSettings);
             return resp == null ? NotFound() : Ok(resp); 
 
         }  

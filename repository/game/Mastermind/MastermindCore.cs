@@ -5,7 +5,6 @@ namespace GamesApp.Mastermind
 
     public abstract class MastermindCore : GameCore
     {
-        protected MastermindSettings _settings;
 
         protected string GameStarted;
 

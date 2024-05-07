@@ -10,14 +10,22 @@ namespace api.Models
         public int nbGuesses{get;set;}
         public int nbCases{get;set;}
         public int nbColors {get;set;}
-        public int maxCombinaison{get;set;}
-        public int minCombinaison{get;set;}
+        protected int maxCombinaison{get;set;}
+        protected int minCombinaison{get;set;}
 
-        public int nbCasesmin{get;set;}
-        public int nbCasesmax{get;set;}
-        public int nbGuessesmax{get;set;}
-        public int nbGuessesmin{get;set;}
-                   public int GetNbGuesses (){
+        protected int nbCasesmin{get;set;}
+        protected int nbCasesmax{get;set;}
+        protected int nbGuessesmax{get;set;}
+        protected int nbGuessesmin{get;set;}
+
+        public GameSettings()
+        {
+            nbCasesmin = 4;
+            nbCasesmax = 10;
+            nbGuessesmin = 10;
+            nbGuessesmax = 50;
+        }
+            public int GetNbGuesses (){
                 return nbGuesses;
             }
 
